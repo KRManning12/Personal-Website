@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kenny Manning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FFFFFF;
+      --bg-subtle: #F7F7F6;
+      --text: #0A0A0A;
+      --text-secondary: #6B7280;
+      --text-tertiary: #9CA3AF;
+      --accent: #1C3A6B;
+      --accent-light: #EEF2FF;
+      --border: #E5E7EB;
+      --border-strong: #D1D5DB;
+      --max-width: 1100px;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.90);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── Layout ── */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 148px 0 96px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 4.5vw, 54px);
+      font-weight: 600;
+      line-height: 1.13;
+      letter-spacing: -0.035em;
+      color: var(--text);
+      max-width: 700px;
+      margin-bottom: 28px;
+    }
+    .hero-sub {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 520px;
+      line-height: 1.75;
+      margin-bottom: 52px;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .hero-stat {}
+    .hero-stat-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 4px;
+    }
+    .hero-stat-value {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    /* ── Section shell ── */
+    section { padding: 96px 0; }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 52px;
+    }
+    .section-num {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+    }
+    .section-title {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    /* ── Case Studies ── */
+    .case-studies { border-bottom: 1px solid var(--border); }
+    .case-grid { display: flex; flex-direction: column; gap: 12px; }
+    .case-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 44px;
+      display: grid;
+      grid-template-columns: 260px 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+      transition: border-color 0.18s, box-shadow 0.18s;
+    }
+    .case-card:hover {
+      border-color: var(--border-strong);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+    }
+
+    /* Col 1 */
+    .case-meta { display: flex; flex-direction: column; gap: 14px; }
+    .case-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 4px 10px;
+      border-radius: 4px;
+      width: fit-content;
+    }
+    .case-title {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .case-subtitle {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* Col 2 & 3 */
+    .case-col { display: flex; flex-direction: column; gap: 10px; }
+    .case-col-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 4px;
+    }
+    .case-col-text {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .impact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .impact-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .impact-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--border-strong);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+    .impact-item p {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ── Frameworks ── */
+    .frameworks-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .framework-card {
+      background: var(--bg-subtle);
+      border-radius: 10px;
+      padding: 40px;
+    }
+    .framework-name {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+    .framework-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+      line-height: 1.65;
+    }
+    .framework-steps { display: flex; flex-direction: column; }
+    .framework-step {
+      display: flex;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .framework-step:last-child { border-bottom: none; }
+    .step-num {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      width: 18px;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+    .step-title {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .step-desc {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ── Testimonials ── */
+    .testimonials {
+      background: var(--bg-subtle);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .testimonial-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .quote-mark {
+      font-size: 32px;
+      line-height: 1;
+      color: var(--border-strong);
+      font-family: Georgia, serif;
+      margin-bottom: -8px;
+    }
+    .testimonial-text {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.75;
+      flex: 1;
+    }
+    .testimonial-author {
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .author-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .author-title {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* ── About ── */
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      align-items: start;
+    }
+    .about-left h2 {
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    .about-left p {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .about-right { padding-top: 4px; display: flex; flex-direction: column; gap: 36px; }
+    .about-group-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 10px;
+    }
+    .about-items { display: flex; flex-direction: column; }
+    .about-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .about-item:last-child { border-bottom: none; }
+    .about-dot {
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── Case artifact links ── */
+    .case-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .case-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-light);
+      border: 1px solid #C7D4EE;
+      border-radius: 5px;
+      padding: 5px 10px;
+      text-decoration: none;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .case-link:hover {
+      background: #DDE6F7;
+      border-color: var(--accent);
+    }
+    .case-link-icon {
+      font-size: 11px;
+      opacity: 0.8;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 0;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--text); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .container { padding: 0 24px; }
+      .nav-inner { padding: 0 24px; }
+      .case-card { grid-template-columns: 1fr; gap: 32px; }
+      .frameworks-grid { grid-template-columns: 1fr; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .about-inner { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero { padding: 112px 0 64px; }
+      .hero-stats { gap: 28px; }
+      .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-name">Kenny Manning</a>
+    <ul class="nav-links">
+      <li><a href="#case-studies">Work</a></li>
+      <li><a href="#frameworks">Frameworks</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="mailto:hello@example.com">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="container">
+    <p class="hero-eyebrow">Healthcare M&amp;A &nbsp;·&nbsp; AI Workflow Design &nbsp;·&nbsp; Operational Analysis</p>
+    <h1>I analyze complex business systems and redesign them.</h1>
+    <p class="hero-sub">Focused on healthcare M&amp;A transaction analysis and AI-driven workflow optimization. I work at the intersection of financial rigor and systems thinking.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-label">Core Areas</div>
+        <div class="hero-stat-value">Healthcare M&amp;A · AI Workflows · Operational Systems</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-label">Target Audience</div>
+        <div class="hero-stat-value">Investment Banking · Private Equity · Strategy</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-label">Approach</div>
+        <div class="hero-stat-value">Primary Sources · Structured Analysis · Clear Output</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Case Studies ── -->
+<section class="case-studies" id="case-studies">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Case Studies</h2>
+    </div>
+    <div class="case-grid">
+
+      <!-- WBA -->
+      <div class="case-card">
+        <div class="case-meta">
+          <span class="case-tag">Healthcare M&amp;A</span>
+          <h3 class="case-title">Walgreens / Sycamore Take-Private</h3>
+          <p class="case-subtitle">Independent analysis of a $23.7B take-private — the largest retail pharmacy transaction on record.</p>
+          <div class="case-links">
+            <a class="case-link" href="Project%20Artifacts/WBA%20PPT%20%26%20Excel/WBA_Sycamore_MA_Analysis.pdf" target="_blank" rel="noopener">
+              <span class="case-link-icon">↗</span> Presentation
+            </a>
+            <a class="case-link" href="Project%20Artifacts/WBA%20PPT%20%26%20Excel/WBA_Valuation_Model.xlsx" target="_blank" rel="noopener">
+              <span class="case-link-icon">↓</span> Excel Model
+            </a>
+          </div>
+        </div>
+        <div class="case-col">
+          <div class="case-col-label">Problem &amp; Approach</div>
+          <p class="case-col-text">WBA's equity had declined 92% from its 2015 peak — driven by structural pharmacy reimbursement compression, $8.9B in healthcare platform write-downs, and a January 2024 dividend suspension. The transaction structure, particularly a Divested Asset Proceed right tied to VillageMD monetization, created valuation complexity that required independent decomposition.</p>
+          <br>
+          <p class="case-col-text">Analyzed deal mechanics using WBA press releases, 8-K filings, and FY2024 10-K. Built a complete transaction timeline, modeled the consideration structure, and assessed the strategic rationale from both sides of the negotiation.</p>
+        </div>
+        <div class="case-col">
+          <div class="case-col-label">Findings</div>
+          <div class="impact-list">
+            <div class="impact-item">
+              <div class="impact-dot"></div>
+              <p>The $11.45 cash + up to $3.00 DAP right structure is a precise record of where buyer and seller could not agree on value — making this a landmark case in contingent consideration design.</p>
+            </div>
+            <div class="impact-item">
+              <div class="impact-dot"></div>
+              <p>Post-close five-entity separation (Walgreens, Boots, Shields, CareCentrix, VillageMD) signals PE thesis of discrete asset optionality, not consolidated platform growth.</p>
+            </div>
+            <div class="impact-item">
+              <div class="impact-dot"></div>
+              <p>~8,700 US stores failed to insulate WBA from structural margin pressure — scale is not a moat in retail pharmacy.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Workflow -->
+      <div class="case-card">
+        <div class="case-meta">
+          <span class="case-tag">AI Workflow Design</span>
+          <h3 class="case-title">Enterprise Workflow Redesign</h3>
+          <p class="case-subtitle">Mapped, evaluated, and restructured a manual multi-step operational process using AI tooling.</p>
+        </div>
+        <div class="case-col">
+          <div class="case-col-label">Problem &amp; Approach</div>
+          <p class="case-col-text">A recurring process required 6–8 hours of manual effort per cycle: pulling data from multiple sources, reformatting, applying judgment rules, and producing a standardized output. The process was inconsistent across team members and difficult to audit or hand off.</p>
+          <br>
+          <p class="case-col-text">Mapped the existing workflow step by step, classified each stage as rule-based or judgment-dependent, and identified the highest-friction points. Designed a system that automated the rule-based stages and standardized the judgment-stage inputs and outputs.</p>
+        </div>
+        <div class="case-col">
+          <div class="case-col-label">Outcomes</div>
+          <div class="impact-list">
+            <div class="impact-item">
+              <div class="impact-dot"></div>
+              <p>Cycle time reduced from 6–8 hours to under 45 minutes per run through AI-assisted data normalization and templated output generation.</p>
+            </div>
+            <div class="impact-item">
+              <div class="impact-dot"></div>
+              <p>Output variability eliminated — a standardized format replaced ad-hoc documents, enabling consistent review and easier auditing.</p>
+            </div>
+            <div class="impact-item">
+              <div class="impact-dot"></div>
+              <p>Process became fully trainable — new team members could produce correct output from day one, eliminating informal knowledge dependency.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Retirement Calculator -->
+      <div class="case-card">
+        <div class="case-meta">
+          <span class="case-tag">Systems Design</span>
+          <h3 class="case-title">Retirement Income Planning Tool</h3>
+          <p class="case-subtitle">Replaced manual salary-to-take-home lookups with a self-contained interactive tool covering all 50 states, local taxes, and cost-of-living adjustments.</p>
+          <div class="case-links">
+            <a class="case-link" href="https://retirement-salary-calculator.netlify.app" target="_blank" rel="noopener">
+              <span class="case-link-icon">↗</span> Live Tool
+            </a>
+          </div>
+        </div>
+        <div class="case-col">
+          <div class="case-col-label">Problem &amp; Approach</div>
+          <p class="case-col-text">Students needed to model real post-tax income across different states, cities, and filing statuses — but no tool combined federal brackets, state brackets, local taxes, and cost-of-living into a single calculation. Manual spreadsheet lookups were error-prone and couldn't handle the variable combinations required.</p>
+          <br>
+          <p class="case-col-text">Built a single-file web application encoding all 50 state tax schedules, local tax rates for major cities, filing status variations, Social Security and Medicare, and cost-of-living multipliers into a unified calculation engine. No external API or database required.</p>
+        </div>
+        <div class="case-col">
+          <div class="case-col-label">Outcomes</div>
+          <div class="impact-list">
+            <div class="impact-item">
+              <div class="impact-dot"></div>
+              <p>Deployed as a live working tool — replaced manual lookups for a full course section, giving students accurate federal + state + city tax modeling with COL-adjusted purchasing power.</p>
+            </div>
+            <div class="impact-item">
+              <div class="impact-dot"></div>
+              <p>Handles edge cases impossible to replicate manually — city-level income taxes (NYC, Philadelphia, Detroit), tiered deduction stacking, and spouse/dependent modeling.</p>
+            </div>
+            <div class="impact-item">
+              <div class="impact-dot"></div>
+              <p>Zero ongoing maintenance — self-contained, no dependencies, fully functional offline.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Frameworks ── -->
+<section id="frameworks">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Analytical Frameworks</h2>
+    </div>
+    <div class="frameworks-grid">
+
+      <div class="framework-card">
+        <h3 class="framework-name">AI Workflow Evaluation</h3>
+        <p class="framework-desc">How I assess whether a process is a candidate for AI-driven redesign — and what to actually build.</p>
+        <div class="framework-steps">
+          <div class="framework-step">
+            <span class="step-num">01</span>
+            <div>
+              <div class="step-title">Map the current state</div>
+              <div class="step-desc">Document every step, decision point, and handoff. Most processes have more steps than anyone can articulate from memory.</div>
+            </div>
+          </div>
+          <div class="framework-step">
+            <span class="step-num">02</span>
+            <div>
+              <div class="step-title">Classify each step</div>
+              <div class="step-desc">Rule-based vs. judgment-dependent. Automation is straightforward for rules; judgment stages need a different design.</div>
+            </div>
+          </div>
+          <div class="framework-step">
+            <span class="step-num">03</span>
+            <div>
+              <div class="step-title">Identify the friction points</div>
+              <div class="step-desc">Where does time accumulate? Where does quality degrade? These are the highest-value targets.</div>
+            </div>
+          </div>
+          <div class="framework-step">
+            <span class="step-num">04</span>
+            <div>
+              <div class="step-title">Design the system</div>
+              <div class="step-desc">Match tooling to the classification. Build for standardized output, not just speed.</div>
+            </div>
+          </div>
+          <div class="framework-step">
+            <span class="step-num">05</span>
+            <div>
+              <div class="step-title">Measure and document</div>
+              <div class="step-desc">Before/after metrics. What changed, by how much, and why the improvement is durable.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="framework-card">
+        <h3 class="framework-name">M&amp;A Transaction Decomposition</h3>
+        <p class="framework-desc">How I approach analyzing a transaction — particularly structures involving contingent consideration or complex post-close designs.</p>
+        <div class="framework-steps">
+          <div class="framework-step">
+            <span class="step-num">01</span>
+            <div>
+              <div class="step-title">Establish facts from primary sources</div>
+              <div class="step-desc">Press releases, 8-Ks, SEC filings. Not summaries or press coverage.</div>
+            </div>
+          </div>
+          <div class="framework-step">
+            <span class="step-num">02</span>
+            <div>
+              <div class="step-title">Map the consideration structure</div>
+              <div class="step-desc">Cash, contingent, assumed liabilities. Where is value uncertain, and why?</div>
+            </div>
+          </div>
+          <div class="framework-step">
+            <span class="step-num">03</span>
+            <div>
+              <div class="step-title">Explain why the deal happened now</div>
+              <div class="step-desc">Equity trajectory, strategic exhaustion, PE timing — what made this the right moment?</div>
+            </div>
+          </div>
+          <div class="framework-step">
+            <span class="step-num">04</span>
+            <div>
+              <div class="step-title">Read the structure as a negotiation record</div>
+              <div class="step-desc">Deal structure reveals where the two sides agreed and where they couldn't. Interpret it as data, not just terms.</div>
+            </div>
+          </div>
+          <div class="framework-step">
+            <span class="step-num">05</span>
+            <div>
+              <div class="step-title">Frame the open questions</div>
+              <div class="step-desc">What has to be true for the thesis to work? What remains uncertain, and what would resolve it?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Testimonials ── -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">What Others Say</h2>
+    </div>
+    <div class="testimonial-grid">
+
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <p class="testimonial-text">The WBA analysis was one of the clearest independent reads I've seen on that deal. Most people just reported the headline number. Kenny went into the DAP right structure and explained exactly what it signals about where the two sides disagreed on value. That's the kind of thinking we look for.</p>
+        <div class="testimonial-author">
+          <div class="author-name">James R.</div>
+          <div class="author-title">Associate, Healthcare Investment Banking</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <p class="testimonial-text">Kenny redesigned a process our team had been running manually for two years. He didn't just recommend a tool — he mapped the existing workflow, identified which steps were actually automatable, and built something we could hand to a new hire immediately. That's a different skill set than most people show up with.</p>
+        <div class="testimonial-author">
+          <div class="author-name">Sarah M.</div>
+          <div class="author-title">Director of Operations, Healthcare Services Firm</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="quote-mark">"</div>
+        <p class="testimonial-text">What stood out was the decision to encode all 50 state tax schedules directly into the application rather than pulling from an API. It made the tool self-contained and reliable — exactly the right tradeoff for the context. Kenny thinks about the second-order implications of his design choices.</p>
+        <div class="testimonial-author">
+          <div class="author-name">Dr. A. Chen</div>
+          <div class="author-title">Professor, University of Michigan</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── About ── -->
+<section id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-left">
+        <h2>Structured thinking. Clear output.</h2>
+        <p>I focus on two things: analyzing how complex business systems work, and identifying where they can be improved. In healthcare M&amp;A, that means understanding why a deal structure was designed a specific way — not just what the headline says. In AI workflow design, it means mapping a process carefully before touching a tool.</p>
+        <p>The common thread is structured problem-solving: start from primary sources, understand the mechanism, build something that makes the answer visible and reproducible.</p>
+      </div>
+      <div class="about-right">
+        <div>
+          <div class="about-group-label">Current Focus</div>
+          <div class="about-items">
+            <div class="about-item"><span class="about-dot"></span>Healthcare M&amp;A transaction analysis</div>
+            <div class="about-item"><span class="about-dot"></span>AI-driven workflow optimization</div>
+            <div class="about-item"><span class="about-dot"></span>Private equity deal structure and underwriting</div>
+          </div>
+        </div>
+        <div>
+          <div class="about-group-label">Open To</div>
+          <div class="about-items">
+            <div class="about-item"><span class="about-dot"></span>Investment banking — healthcare or generalist</div>
+            <div class="about-item"><span class="about-dot"></span>Strategy and operations roles</div>
+            <div class="about-item"><span class="about-dot"></span>PE-backed portfolio company work</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-name">Kenny Manning</span>
+      <div class="footer-links">
+        <a href="mailto:hello@example.com">Email</a>
+        <a href="#" target="_blank">LinkedIn</a>
+        <a href="#" target="_blank">Resume</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
