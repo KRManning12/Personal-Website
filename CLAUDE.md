@@ -1,35 +1,20 @@
-# CLAUDE.md
-
-## Purpose
-This project is a personal brand website focused on:
-- healthcare M&A analysis
-- AI-driven workflow optimization
-- operational systems thinking
-
-The goal is to communicate:
-- clear thinking
-- structured analysis
-- ability to improve how businesses operate
-
-NOT to showcase generic skills or resume content.
+## Always Do First
+- Invoke the `frontend-design` skill before writing any frontend code.
 
 ---
 
-## Core Positioning
+## Purpose
+Personal brand site focused on:
+- healthcare M&A analysis
+- AI-driven workflow optimization
 
-The user should be positioned as:
+Goal:
+Communicate clear thinking, structured analysis, and ability to improve business systems.
 
-"I analyze complex business systems and redesign them using AI and structured workflows."
+Not a resume. Not generic.
 
-All content should reinforce:
-- clarity of thinking
-- systems-level understanding
-- practical execution
-
-Avoid:
-- buzzwords
-- vague claims
-- generic AI language
+Reader takeaway:
+This person is analytically strong, structured, and execution-oriented.
 
 ---
 
@@ -37,11 +22,10 @@ Avoid:
 
 Primary:
 - investment banking (M&A)
-- private equity
-- strategy / operations leaders
+- AI consulting clients
 
 Secondary:
-- potential AI consulting clients
+- strategy / operations leaders
 
 Content should feel:
 - analytical
@@ -50,125 +34,69 @@ Content should feel:
 
 ---
 
-## Site Structure
+## Site Structure (Strict Order)
 
-### 1. Homepage
-Purpose: immediate clarity + credibility
+### 1. Projects (Core Section)
 
-Must include:
-- clear positioning statement
-- 2–3 concrete capabilities
-- link to case studies
 
-Avoid:
-- long intros
-- personal storytelling
-- generic claims
+**A. Healthcare M&A Analysis**
+
+**B. Retirement Income Planning Tool**
+- See "Financial Literacy Class - Spring 2026" folder for context if needed. This is the course I am the Head TA at Rice.
+
+**C. Unkown**
+- Still fiuring this out. Template an example AI project in for now.
 
 ---
 
-### 2. Case Studies (Most Important Section)
-
-Each case study MUST follow this structure:
-
-#### Title
-Clear and specific
-
-#### Problem
-What was broken or unclear
-
-#### Approach
-How the problem was analyzed
-What frameworks or methods were used
-
-#### Solution
-What was built, modeled, or designed
-
-#### Impact
-- measurable outcomes if available
-- otherwise: demonstrated capabilities
-
----
-
-### 3. Core Case Studies
-
-#### A. Healthcare M&A Analysis
-Example: Walgreens / Sycamore take-private
-
-Focus on:
-- deal structure
-- valuation
-- strategic implications
-
-Position as:
-Independent transaction analysis, not school work
-
----
-
-#### B. AI Workflow Optimization (Sanitized)
-No company names or sensitive data
-
-Focus on:
-- identifying inefficient workflows
-- evaluating AI tools
-- designing systems
-
-Show:
-- before vs after
-- process improvement
-- time / efficiency gains
-
----
-
-#### C. AI-Driven Course System
-Example: UNIV 154 system
-
-Focus on:
-- replacing manual workflows
-- standardization
-- scalability
-
----
-
-### 4. Frameworks Section
-
-Include structured thinking such as:
-
-#### AI Workflow Evaluation Framework
-- identify repetitive work
-- evaluate automation potential
-- select tools
-- implement system
-
-#### Process Improvement Logic
-- eliminate manual steps
-- standardize outputs
-- reduce variability
-
----
-
-### 5. Tools Section
-
-Include:
-- systems built
-- templates
-- workflows
-
-Keep descriptions short and outcome-focused.
-
----
-
-### 6. About
-
+### 2. About Me
 Short and direct.
 
 Include:
-- what the user focuses on
-- how they think about problems
+- what you focus on
+- how you think
 
 Avoid:
 - life story
-- generic personality traits
+- generic traits
+
+---
+
+### 3. Experience
+Only include if it reinforces capability.
+
+Focus on:
+- what you improved
+- systems you built
+- outcomes
+
+Avoid:
+- job descriptions
+- responsibilities without impact
+
+---
+
+### 4. Testimonials
+Used to validate:
+- analytical thinking
+- execution ability
+- differentiation
+
+Keep:
+- specific
+- credibility-heavy
+
+---
+
+### 5. Contact Me
+Simple and frictionless.
+
+Include:
+- email
+- LinkedIn
+- optional resume
+
+No complexity.
 
 ---
 
@@ -186,10 +114,8 @@ Avoid:
 - logical flow
 
 ### Language
+
 Avoid:
-- "passionate about"
-- "leveraging AI"
-- "cutting-edge"
 - generic business clichés
 
 Prefer:
@@ -201,60 +127,21 @@ Prefer:
 
 ## Content Rules
 
-### Always:
-- prioritize clarity over length
-- show thinking, not just output
-- emphasize structure and logic
+Always:
+- Keep sentences concise, laymens terms, and easily readable
+- Make sure every section adds value
+- Show thinking, not just output
 
-### Never:
-- present work as "school projects"
-- include filler content
-- over-explain basics
-
----
-
-## Case Study Quality Bar
-
-Each case study should demonstrate at least one:
-
-- ability to analyze complex systems
-- ability to structure ambiguous problems
-- ability to design improved workflows
-- ability to communicate clearly
+Cut:
+- filler
+- repetition
+- vague claims
 
 ---
 
-## AI Content Generation Guidelines
+## What Good Looks Like
 
-When generating content:
-
-1. Start with structure (Problem → Approach → Solution → Impact)
-2. Keep sentences tight
-3. Remove any generic phrasing
-4. Ensure every section adds value
-
----
-
-## Technical Scope
-
-Keep implementation simple:
-
-- static or Next.js site
-- minimal dependencies
-- markdown-friendly content
-
-Avoid:
-- unnecessary complexity
-- heavy frameworks unless required
-
----
-
-## What Success Looks Like
-
-A visitor should quickly conclude:
-
-- this person understands complex businesses
-- this person can improve how systems operate
-- this person communicates clearly
-
-If content does not support this, revise it.
+- Immediate clarity in <5 seconds
+- Every section earns its place
+- Projects carry the weight
+- No wasted words

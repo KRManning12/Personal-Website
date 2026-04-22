@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(python -m markitdown \"C:\\\\Users\\\\krman\\\\Downloads\\\\WBA_Sycamore_MA_Analysis.pptx\")"
-    ]
-  }
-}
